@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 				]
 			}
 		}),
+    BrowserAnimationsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
