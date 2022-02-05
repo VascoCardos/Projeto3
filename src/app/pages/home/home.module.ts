@@ -10,7 +10,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { RegistarComponent } from './registar/registar.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule
   ],
   declarations: [HomeComponent,
-                LoginComponent]
+                LoginComponent,
+                RegistarComponent]
 })
 export class HomeModule { }

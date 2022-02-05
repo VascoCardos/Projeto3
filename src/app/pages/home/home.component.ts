@@ -1,6 +1,8 @@
+import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
+import { RegistarComponent } from './registar/registar.component';
 
 
 @Component({
@@ -19,4 +21,7 @@ export class HomeComponent implements OnInit {
     this.dialog.open(LoginComponent);
   }
 
+  openDialog2(): void {
+    this.dialog.open(RegistarComponent);
+  }
 }
