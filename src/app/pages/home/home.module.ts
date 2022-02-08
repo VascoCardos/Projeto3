@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { RegistarComponent } from './registar/registar.component';
+import { PesquisaComponent } from './pesquisa/pesquisa.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { RegistarComponent } from './registar/registar.component';
   ],
   declarations: [HomeComponent,
                 LoginComponent,
-                RegistarComponent]
+                RegistarComponent,
+                PesquisaComponent]
 })
 export class HomeModule { }

@@ -1,0 +1,11 @@
+.container {
+  background-image: url('../../../../assets/politica_transparente.png');
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }

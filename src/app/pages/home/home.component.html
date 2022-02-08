@@ -1,16 +1,7 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <span>Politica Transparente</span>
   <button mat-raised-button (click)="openDialog()" style="position: absolute; right: 20px;">Entrar</button>
   <button mat-raised-button (click)="openDialog2()" style="position: absolute; right: 100px;">Criar conta</button>
 </mat-toolbar>
-<div class="container" >
-  <mat-form-field appearance="fill">
-    <mat-label>Pesquisar</mat-label>
-    <input matInput [type]=" 'text'">
-  </mat-form-field>
-  <button mat-icon-button matSuffix [attr.aria-label]="'Hide password'" style="background-color:lightslategray; border: 300px; ">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
-  </button>
-</div>
-  
+<router-outlet></router-outlet>
 
