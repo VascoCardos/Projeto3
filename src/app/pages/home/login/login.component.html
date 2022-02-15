@@ -1,8 +1,8 @@
-<form [formGroup]="profileForm" class="Form">
+<form [formGroup]="form"  class="Form">
   <mat-form-field appearance="fill">
     <mat-label>Insira o seu email</mat-label>
-    <input matInput [type]=" 'emai'" formControlName="email">
-    <mat-error *ngIf="profileForm.controls.email.invalid">First Name is required</mat-error>
+    <input type="text" matInput formControlName="email">
+    <mat-error *ngIf="form.controls.email.invalid">First Name is required</mat-error>
   </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -13,6 +13,6 @@
       </button>
     </mat-form-field>
 
-    <button mat-raised-button (click)="Login()">Confirmar</button>
+    <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Login</button>
 
   </form>

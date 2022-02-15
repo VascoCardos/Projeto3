@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'p3-login',
@@ -9,9 +10,18 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+  @Input() error: string | null;
+  form: FormGroup;
+
+
   hide = true;
-  constructor( private formBuilder: FormBuilder, public dialogRef: MatDialogRef<LoginComponent>) { }
+  constructor(private router: Router,private authService: AuthService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef<LoginComponent>) {
+    this.form = new FormGroup({
+			email: new FormControl('', [Validators.required, Validators.email]),
+			password: new FormControl('', Validators.required),
+		});
+		this.error = null;
+  }
 
 
   ngOnInit(): void {
@@ -21,23 +31,16 @@ export class LoginComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  profileForm =  this.formBuilder.group({
-
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required )
-  });
-
   submit(): void {
-		if (this.profileForm.valid) {
-			this.authService.register(
-				this.profileForm.controls.email.value,
-				this.profileForm.controls.password.value,
-				this.profileForm.controls.nome.value,
+		if (this.form.valid) {
+			this.authService.login(
+				this.form.controls.email.value,
+				this.form.controls.password.value,
 			).subscribe(
-				(success) => this.router.navigate(['/auth']),
+				(success) => this.router.navigate(['/']),
 				(err) => this.error = 'Email invalid'
 			);
 		}
 	}
-  
+
 }

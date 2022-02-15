@@ -11,7 +11,7 @@ export class AuthService {
 	constructor(private http: HttpClient, private router: Router) { }
 
 	login(email: string, password: string) {
-		return this.http.post<JWT>('localhost:3000/Authenticate', { email, password, nome}).pipe(
+		return this.http.post<JWT>('localhost:3000/Authenticate', { email, password}).pipe(
 			map(
 				(res: JWT) => {
 					if (res.auth) {
