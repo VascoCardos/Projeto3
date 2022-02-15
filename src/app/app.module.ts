@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -14,7 +14,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 		AppComponent
 	],
 	imports: [
-		ReactiveFormsModule,
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,

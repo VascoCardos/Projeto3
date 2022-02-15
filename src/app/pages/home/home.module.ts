@@ -13,11 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { RegistarComponent } from './registar/registar.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
-import { FormBuilder,FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    FormBuilder,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
