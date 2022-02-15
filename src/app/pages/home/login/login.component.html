@@ -1,12 +1,13 @@
-<form action="Entrar" class="Form">
+<form [formGroup]="profileForm" class="Form">
   <mat-form-field appearance="fill">
     <mat-label>Insira o seu email</mat-label>
-    <input matInput [type]=" 'text'">
+    <input matInput [type]=" 'emai'" formControlName="email">
+    <mat-error *ngIf="profileForm.controls.email.invalid">First Name is required</mat-error>
   </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Insira a sua password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password ">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>

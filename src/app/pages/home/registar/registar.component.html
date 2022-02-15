@@ -1,30 +1,24 @@
-<form action="Entrar" class="Form">
+
+<form [formGroup]="profileForm" class="Form">
 
   <mat-form-field appearance="fill">
     <mat-label>Insira o seu email</mat-label>
-    <input matInput [type]=" 'text'">
+    <input matInput [type]=" 'email'" formControlName="email">
   </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Insira o seu nome</mat-label>
-      <input matInput [type]=" 'text'">
+      <input matInput [type]=" 'text'" formControlName="nome">
     </mat-form-field>
   
   <mat-form-field appearance="fill">
     <mat-label>Insira a sua password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
   </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Confirme a sua password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
   
   
     <button mat-raised-button (click)="Registar()">Confirmar</button>

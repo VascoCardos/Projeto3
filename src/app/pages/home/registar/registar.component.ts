@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'p3-registar',
@@ -18,4 +18,11 @@ export class RegistarComponent implements OnInit {
   Registar(): void {
     this.dialogRef.close();
   }
+
+  profileForm = new FormGroup({
+
+    email: new FormControl('', Validators.required),
+    nome: new FormControl ('', Validators.required),
+    password: new FormControl('', Validators.required)
+  });
 }
