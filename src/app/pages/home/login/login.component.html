@@ -1,21 +1,17 @@
-<h1 mat-dialog-title>Entrar</h1>
-<div mat-dialog-content>
+<form action="Entrar" class="Form">
   <mat-form-field appearance="fill">
     <mat-label>Insira o seu email</mat-label>
     <input matInput [type]=" 'text'">
   </mat-form-field>
-</div>
-<div>
-  <mat-form-field appearance="fill">
-    <mat-label>Insira a sua password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <div class="buttons" mat-dialog-actions>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Insira a sua password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
     <button mat-raised-button (click)="Login()">Confirmar</button>
-  </div>
-</div>
+
+  </form>
