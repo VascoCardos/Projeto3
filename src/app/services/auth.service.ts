@@ -23,11 +23,11 @@ export class AuthService {
 	}
 
 	register(email: string, password: string, firstname: string, lastname: string,photoUrl:string) {
-		return this.http.post('localhost:3000/user/new', { email, password, nome});
+		return this.http.post('localhost:3000/user/new', { email, password});
 	}
 
 	logout(): void {
-		localStorage.clear();
+		localStorage.clear();	
 		this.router.navigate(['auth']);
 	}
 }
