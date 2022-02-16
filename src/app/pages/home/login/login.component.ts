@@ -37,8 +37,11 @@ export class LoginComponent implements OnInit {
 				this.form.controls.email.value,
 				this.form.controls.password.value,
 			).subscribe(
-				(success) => this.router.navigate(['/']),
-				(err) => this.error = 'Email invalid'
+				(success) => window.location.reload(),
+				(err) =>{
+          console.log(err)
+          this.error = 'Email invalid'
+        }
 			);
 		}
 	}
