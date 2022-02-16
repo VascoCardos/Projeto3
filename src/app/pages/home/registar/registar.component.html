@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form [formGroup]="form" (ngSubmit)="submit()" class="Form">
   <p>
       <mat-form-field>
@@ -24,3 +25,28 @@
       <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Registar</button>
   </div>
 </form>
+=======
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <p>
+		<mat-form-field>
+			<input type="text" matInput placeholder="Nome" formControlName="nome">
+			<mat-error *ngIf="form.controls.nome.invalid">Nome Necessario</mat-error>
+		</mat-form-field>
+  </p>
+  <p>
+		<mat-form-field>
+			<input type="text" matInput placeholder="Email" formControlName="email">
+			<mat-error *ngIf="form.controls.email.invalid">Email Necessario</mat-error>
+		</mat-form-field>
+  </p>
+  <p>
+		<mat-form-field>
+			<input type="password" matInput placeholder="Password" formControlName="password">
+			<mat-error *ngIf="form.controls.password.invalid">Password is required</mat-error>
+		</mat-form-field>
+  </p>
+  <div class="button">
+		<button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Registar</button>
+	</div>
+</form>
+>>>>>>> 50a33e7bc26368e9b8a8efa96e3e1cca5fe5c5c9
