@@ -1,26 +1,26 @@
-
-<form [formGroup]="profileForm" class="Form">
-
-  <mat-form-field appearance="fill">
-    <mat-label>Insira o seu email</mat-label>
-    <input matInput [type]=" 'email'" formControlName="email">
-  </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Insira o seu nome</mat-label>
-      <input matInput [type]=" 'text'" formControlName="nome">
+<form [formGroup]="form" (ngSubmit)="submit()" class="Form">
+  <p>
+      <mat-form-field>
+          <input type="email" matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="form.controls.email.invalid">Email is required</mat-error>
+      </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Nome" formControlName="Nome">
+        <mat-error *ngIf="form.controls.password.invalid">Name is required</mat-error>
     </mat-form-field>
-  
-  <mat-form-field appearance="fill">
-    <mat-label>Insira a sua password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
-
-  
-  
-    <button mat-raised-button (click)="Registar()">Confirmar</button>
-  
+</p>
+  <p>
+      <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="form.controls.password.invalid">Password is required</mat-error>
+      </mat-form-field>
+  </p>
+  <p *ngIf="error" class="error">
+      {{ error }}
+  </p>
+  <div class="button">
+      <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Registar</button>
+  </div>
 </form>
