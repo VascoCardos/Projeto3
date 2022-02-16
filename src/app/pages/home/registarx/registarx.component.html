@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="Form">
+  <p>
+      <mat-form-field>
+          <input type="email" matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="form.controls.email.invalid">Email is required</mat-error>
+      </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Nome" formControlName="nome">
+        <mat-error *ngIf="form.controls.nome.invalid">Name is required</mat-error>
+    </mat-form-field>
+</p>
+  <p>
+      <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="form.controls.password.invalid">Password is required</mat-error>
+      </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Afiliacao" formControlName="afiliacao">
+        <mat-error *ngIf="form.controls.afiliacao.invalid">Afiliacao is required</mat-error>
+    </mat-form-field>
+</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo de Utilizador</mat-label>
+    <mat-select formControlName="tipo">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p *ngIf="error" class="error">
+      {{ error }}
+  </p>
+  <div class="button">
+      <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Registar</button>
+  </div>
+</form>

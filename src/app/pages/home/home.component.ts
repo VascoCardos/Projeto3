@@ -17,7 +17,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HomeComponent implements OnInit {
   show = true
 
-  constructor(private authService: AuthService,private userService: UserService, public formBuilder: FormBuilder, public dialog: MatDialog,) { }
+  constructor(private authService: AuthService,private userService: UserService, public formBuilder: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.show =!this.userService.isLoggedIn

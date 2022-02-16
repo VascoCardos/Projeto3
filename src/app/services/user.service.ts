@@ -18,5 +18,17 @@ export class UserService {
   register(email: string, password: string, nome: string) {
 		return this.http.post('http://localhost:3000/user/new', { email, password, nome});
 	}
+
+  registerj(email: string, password: string, nome: string, afiliacao:string) {
+		return this.http.post('http://localhost:3000/user/new/jornalista', { email, password, nome,afiliacao});
+	}
+
+  registerp(email: string, password: string, nome: string, afiliacao:string) {
+		return this.http.post('http://localhost:3000/user/new/politico', { email, password, nome,afiliacao});
+	}
+
+  registera(email: string, password: string, nome: string) {
+		return this.http.post('http://localhost:3000/user/new/admin', { email, password, nome});
+	}
 }
 

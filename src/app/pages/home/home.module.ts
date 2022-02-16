@@ -12,9 +12,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { RegistarComponent } from './registar/registar.component';
+import { RegistarxComponent } from './registarx/registarx.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import {ResultadosComponent} from './resultados/resultados.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -27,11 +29,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   declarations: [HomeComponent,
                 LoginComponent,
                 RegistarComponent,
+                RegistarxComponent,
                 PesquisaComponent,
                 ResultadosComponent]
 })
