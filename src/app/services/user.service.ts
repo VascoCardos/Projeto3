@@ -16,7 +16,7 @@ export class UserService {
 	}
 
   register(email: string, password: string, nome: string) {
-		return this.http.post('http://localhost:3000/user/new', { email, password});
+		return this.http.post('http://localhost:3000/user/new', { email, password, nome});
 	}
 }
 
