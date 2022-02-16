@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { RegistarComponent } from './registar/registar.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
+import {ResultadosComponent} from './resultados/resultados.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [HomeComponent,
                 LoginComponent,
                 RegistarComponent,
-                PesquisaComponent]
+                PesquisaComponent,
+                ResultadosComponent]
 })
 export class HomeModule { }
