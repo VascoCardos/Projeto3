@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="Form">
+  <p>
+      <mat-form-field>
+          <input type="text" matInput placeholder="Titulo" formControlName="titulo">
+          <mat-error *ngIf="form.controls.titulo.invalid">Email is required</mat-error>
+      </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Empresa" formControlName="empresa">
+        <mat-error *ngIf="form.controls.empresa.invalid">Name is required</mat-error>
+    </mat-form-field>
+</p>
+  <p>
+    <mat-form-field>
+        <textarea matInput placeholder="Descricao" formControlName="descricao"></textarea>
+        <mat-error *ngIf="form.controls.descricao.invalid">descricao is required</mat-error>
+    </mat-form-field>
+</p>
+
+  <p *ngIf="error" class="error">
+      {{ error }}
+  </p>
+  <div class="button">
+      <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Registar</button>
+  </div>
+</form>

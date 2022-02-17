@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { NewPostComponent } from '../newPost/newPost.component';
 import { RegistarxComponent } from '../registarx/registarx.component';
 
 @Component({
@@ -17,6 +18,9 @@ export class PesquisaComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(RegistarxComponent);
+  }
+  openDialog2(): void {
+    this.dialog.open(NewPostComponent);
   }
 
 }

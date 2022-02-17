@@ -14,7 +14,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { RegistarComponent } from './registar/registar.component';
 import { RegistarxComponent } from './registarx/registarx.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
-import {ResultadosComponent} from './resultados/resultados.component'
+import {ResultadosComponent} from './resultados/resultados.component';
+import { NewPostComponent } from './newPost/newPost.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 
@@ -37,6 +38,7 @@ import {MatSelectModule} from '@angular/material/select';
                 RegistarComponent,
                 RegistarxComponent,
                 PesquisaComponent,
-                ResultadosComponent]
+                ResultadosComponent,
+                NewPostComponent]
 })
 export class HomeModule { }
