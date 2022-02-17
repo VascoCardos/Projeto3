@@ -30,5 +30,9 @@ export class UserService {
   registera(email: string, password: string, nome: string) {
 		return this.http.post('http://localhost:3000/user/new/admin', { email, password, nome});
 	}
+
+  getPerfil(id:string){
+    return this.http.get(`http://localhost:3000/user/${id}`);
+  }
 }
 

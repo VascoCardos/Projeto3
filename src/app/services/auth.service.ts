@@ -25,4 +25,10 @@ export class AuthService {
 	logout(): void {
 		localStorage.clear();
 	}
+
+  getId() {
+    const token= localStorage.getItem('auth_token')
+		return this.http.post('http://localhost:3000/auth/id', {token});
+	}
+
 }

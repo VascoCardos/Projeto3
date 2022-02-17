@@ -10,7 +10,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { RegistarComponent } from './registar/registar.component';
 import { RegistarxComponent } from './registarx/registarx.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
@@ -18,6 +17,8 @@ import {ResultadosComponent} from './resultados/resultados.component';
 import { NewPostComponent } from './newPost/newPost.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
+import { PerfilComponent } from './perfil/perfil.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,8 @@ import {MatSelectModule} from '@angular/material/select';
                 RegistarxComponent,
                 PesquisaComponent,
                 ResultadosComponent,
-                NewPostComponent]
+                NewPostComponent,
+                PerfilComponent,
+                PostComponent]
 })
 export class HomeModule { }

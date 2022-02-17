@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
-  <span>Politica Transparente</span>
+  <span routerLink="/">Politica Transparente</span>
   <button mat-raised-button *ngIf="show" (click)="openDialog()" style="position: absolute; right: 20px;">Entrar</button>
   <button mat-raised-button *ngIf="show" (click)="openDialog2()" style="position: absolute; right: 100px;">Criar conta</button>
+  <button mat-raised-button *ngIf="!show" (click)="perfil()" style="position: absolute; right: 100px;">Perfil</button>
   <button mat-raised-button *ngIf="!show" (click)="sair()" style="position: absolute; right: 20px;">Sair</button>
 </mat-toolbar>
 <router-outlet></router-outlet>

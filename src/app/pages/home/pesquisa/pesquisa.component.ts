@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { UserService } from 'src/app/services/user.service';
 import { NewPostComponent } from '../newPost/newPost.component';
 import { RegistarxComponent } from '../registarx/registarx.component';
 
@@ -11,9 +12,10 @@ import { RegistarxComponent } from '../registarx/registarx.component';
 export class PesquisaComponent implements OnInit {
   show = true;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private userService:UserService) { }
 
   ngOnInit() {
+    this.show =this.userService.isLoggedIn
   }
 
   openDialog(): void {
