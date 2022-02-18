@@ -1,10 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { LoginComponent } from './login/login.component';
-import { RegistarComponent } from './registar/registar.component';
 import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PostComponent } from './post/post.component';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 
 const routes: Routes = [
@@ -23,6 +22,10 @@ const routes: Routes = [
       {
 				path: 'post/:id',
 				component: PostComponent
+			},
+      {
+				path: 'search/:keywords',
+				component: ResultadosComponent
 			}
 		]
 	}

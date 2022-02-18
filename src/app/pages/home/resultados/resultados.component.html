@@ -1,3 +1,11 @@
-<p>
-  resultados works!
-</p>
+<div class="container">
+	<h1>Resultados de '{{tag}}'</h1>
+	<div class="feed-cards" *ngFor="let resultado of resultados">
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-title class="titulo" (click)="goToPost(resultado._id)">{{resultado.titulo}}</mat-card-title>
+      <mat-card-subtitle>Autor: {{resultado.author_nome}}</mat-card-subtitle>
+      <mat-card-subtitle>Empresa envolvida: {{resultado.empresa}}</mat-card-subtitle>
+    </mat-card>
+	</div>
+</div>

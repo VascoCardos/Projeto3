@@ -1,11 +1,12 @@
 <button mat-raised-button *ngIf="show" (click)="openDialog()" color="primary" style="position: absolute; right: 20px;">Criar Utilizador</button>
 <button mat-raised-button *ngIf="show" (click)="openDialog2()" color="primary">Nova Interacao</button>
 <div class="container" >
-  <mat-form-field appearance="fill">
-    <mat-label>Pesquisar</mat-label>
-    <input matInput [type]=" 'text'">
-  </mat-form-field>
-  <button mat-icon-button matSuffix [attr.aria-label]="'Hide password'" style="background-color:lightslategray; border: 300px; ">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
-  </button>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="Form">
+    <p>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Pesquisa" formControlName="pesquisa">
+        </mat-form-field>
+        <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">pesquisar</button>
+    </p>
+  </form>
 </div>
