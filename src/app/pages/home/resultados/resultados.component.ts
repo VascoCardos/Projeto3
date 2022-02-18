@@ -8,7 +8,7 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./resultados.component.css']
 })
 export class ResultadosComponent implements OnInit {
-
+  show = false
   resultados:any
   tag = ''
 
@@ -19,6 +19,9 @@ export class ResultadosComponent implements OnInit {
     this.postService.search(this.tag).subscribe(
       (success) => {
         this.resultados=JSON.parse(JSON.stringify(success))
+        if(this.resultados.length == 0){
+          this.show = true
+        }
       } ,
       (err) => console.log(err)
     );

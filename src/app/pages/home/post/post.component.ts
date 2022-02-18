@@ -26,6 +26,7 @@ export class PostComponent implements OnInit {
     this.postService.getPost(this.id).subscribe(
       (success) => {
         this.post=JSON.parse(JSON.stringify(success))
+        console.log(this.post.titulo)
       } ,
       (err) => console.log(err)
     );
@@ -37,8 +38,9 @@ export class PostComponent implements OnInit {
       (err) => console.log(err)
     );
 
-    this.authService.getId(
-      ).subscribe(
+    if(this.userService.isLoggedIn){
+      this.authService.getId()
+      .subscribe(
         (success) => {
           const temp = JSON.parse(JSON.stringify(success))
           this.myId = temp._id
@@ -54,6 +56,7 @@ export class PostComponent implements OnInit {
         } ,
         (err) => console.log(err)
       );
+    }
   }
 
   goToPerfil(){

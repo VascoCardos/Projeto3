@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 				(success) => window.location.reload(),
 				(err) =>{
           console.log(err)
-          this.error = 'Email invalid'
+          this.error = 'Email e/ou Password incorretos'
         }
 			);
 		}
