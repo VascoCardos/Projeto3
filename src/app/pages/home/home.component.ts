@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
   selector: 'p3-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
-})
+}) 
 export class HomeComponent implements OnInit {
   show = true
 
