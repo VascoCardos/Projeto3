@@ -34,5 +34,13 @@ export class UserService {
   getPerfil(id:string){
     return this.http.get(`http://localhost:3000/user/${id}`);
   }
+
+  search(tags : string) {
+    return this.http.get(`http://localhost:3000/user/search/${tags}`);
+  }
+
+  getPoliticos(){
+    return this.http.get(`http://localhost:3000/user/politicos/list`);
+  }
 }
 

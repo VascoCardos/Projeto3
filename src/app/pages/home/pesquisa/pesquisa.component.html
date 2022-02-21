@@ -1,5 +1,5 @@
 <button mat-raised-button *ngIf="show" (click)="openDialog()" color="primary" style="position: absolute; right: 20px; top: 80px;">Criar Utilizador</button>
-<button mat-raised-button *ngIf="show" (click)="openDialog2()" color="primary" style="position: absolute; left: 20px; top: 80px;">Nova Interacao</button>
+<button mat-raised-button *ngIf="showPost" (click)="openDialog2()" color="primary" style="position: absolute; left: 20px; top: 80px;">Nova Interacao</button>
 <div class="container" >
   <form [formGroup]="form" (ngSubmit)="submit()" class="Form">
     <p>

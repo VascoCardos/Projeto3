@@ -1,18 +1,41 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="Form">
   <p>
-      <mat-form-field>
+      <mat-form-field appearance="fill">
           <input type="text" matInput placeholder="Titulo" formControlName="titulo">
           <mat-error *ngIf="form.controls.titulo.invalid">Email is required</mat-error>
       </mat-form-field>
   </p>
   <p>
-    <mat-form-field>
+    <mat-form-field appearance="fill">
         <input type="text" matInput placeholder="Empresa" formControlName="empresa">
         <mat-error *ngIf="form.controls.empresa.invalid">Name is required</mat-error>
     </mat-form-field>
 </p>
-  <p>
-    <mat-form-field>
+<mat-chip-list #chipList aria-label="Fruit selection">
+  <mat-chip
+    *ngFor="let politico of politicosSelecionados"
+    (removed)="remove(politico)">
+    {{politico}}
+    <button matChipRemove>
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <input
+    placeholder="Adidiconar Politico"
+    #politicoInput
+    [formControl]="politicosCtrl"
+    [matAutocomplete]="auto"
+    [matChipInputFor]="chipList"
+    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+    (matChipInputTokenEnd)="add($event)">
+</mat-chip-list>
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+  <mat-option *ngFor="let politico of filteredPoliticos | async" [value]="politico">
+    {{politico}}
+  </mat-option>
+</mat-autocomplete>
+<p>
+    <mat-form-field appearance="fill">
         <textarea matInput placeholder="Descricao" formControlName="descricao"></textarea>
         <mat-error *ngIf="form.controls.descricao.invalid">descricao is required</mat-error>
     </mat-form-field>
@@ -22,6 +45,6 @@
       {{ error }}
   </p>
   <div class="button">
-      <button type="submit" mat-raised-button [disabled]="form.invalid" color="primary">Publicar</button>
+      <button type="submit" appearance="fill" mat-raised-button [disabled]="form.invalid" color="primary">Publicar</button>
   </div>
 </form>

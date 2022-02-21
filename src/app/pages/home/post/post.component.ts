@@ -26,7 +26,7 @@ export class PostComponent implements OnInit {
     this.postService.getPost(this.id).subscribe(
       (success) => {
         this.post=JSON.parse(JSON.stringify(success))
-        console.log(this.post.titulo)
+        console.log(this.post.author_nome)
       } ,
       (err) => console.log(err)
     );

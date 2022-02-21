@@ -1,6 +1,6 @@
 <div class="container">
 	<h1>Resultados de '{{tag}}'</h1>
-	<div class="feed-cards" *ngFor="let resultado of resultados">
+	<div class="feed-cards" *ngFor="let resultado of postResultados">
     <mat-divider></mat-divider>
     <mat-card>
       <mat-card-title class="titulo" (click)="goToPost(resultado._id)">{{resultado.titulo}}</mat-card-title>
@@ -8,5 +8,14 @@
       <mat-card-subtitle>Empresa envolvida: {{resultado.empresa}}</mat-card-subtitle>
     </mat-card>
 	</div>
-  <h1 *ngIf="show">Sem Resultados!</h1>
+  <h1 *ngIf="postShow">Sem Resultados em interações!</h1>
+  <div class="feed-cards" *ngFor="let resultado of userResultados">
+    <mat-divider></mat-divider>
+    <mat-card>
+      <mat-card-title class="titulo" (click)="goToUser(resultado._id)">{{resultado.nome}}</mat-card-title>
+      <mat-card-subtitle>{{resultado.tipo}} - {{resultado.afiliacao}}</mat-card-subtitle>
+    </mat-card>
+	</div>
+  <mat-divider *ngIf="userShow"></mat-divider>
+  <h1 *ngIf="userShow">Sem Resultados em Utilizadores!</h1>
 </div>

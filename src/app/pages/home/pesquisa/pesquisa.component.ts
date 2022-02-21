@@ -13,7 +13,8 @@ import { RegistarxComponent } from '../registarx/registarx.component';
   styleUrls: ['./pesquisa.component.css']
 })
 export class PesquisaComponent implements OnInit {
-  show = true;
+  show = false;
+  showPost = false;
   form: FormGroup;
 
   constructor(private authService:AuthService,public dialog: MatDialog,private userService:UserService, private router:Router) {
@@ -29,9 +30,17 @@ export class PesquisaComponent implements OnInit {
         .subscribe(
           (success) => {
             const temp = JSON.parse(JSON.stringify(success))
-            console.log(temp.tipo)
-            if (temp.tipo == 'user')
+            if (temp.tipo == 'user' || temp.tipo == 'politico'){
               this.show=false
+              this.showPost=false
+            }else if (temp.tipo == 'jornalista'){
+              this.show=false
+              this.showPost=true
+            }else{
+              this.show=true
+              this.showPost=true
+            }
+
           } ,
           (err) => console.log(err)
         );
@@ -42,7 +51,10 @@ export class PesquisaComponent implements OnInit {
     this.dialog.open(RegistarxComponent);
   }
   openDialog2(): void {
-    this.dialog.open(NewPostComponent);
+    this.dialog.open(NewPostComponent, {
+      height: '400px',
+      width: '600px',
+    });
   }
 
   submit(){

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeRoutes } from './home.routing';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatChipsModule} from '@angular/material/chips';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -22,6 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PostComponent } from './post/post.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   imports: [
@@ -38,7 +40,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatSelectModule,
     MatCardModule,
     MatDividerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatChipsModule,
+    MatAutocompleteModule
   ],
   declarations: [HomeComponent,
                 LoginComponent,
