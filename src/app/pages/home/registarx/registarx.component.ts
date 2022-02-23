@@ -43,7 +43,7 @@ export class RegistarxComponent implements OnInit {
 
   submit(): void {
 		if (this.form.valid) {
-      if (this.form.controls.tipo.value == "Jornalista"){
+      if (this.form.controls.tipo.value == "Cidadão"){
         this.userService.register(
           this.form.controls.email.value,
           this.form.controls.password.value,
@@ -62,7 +62,7 @@ export class RegistarxComponent implements OnInit {
           (success) => window.location.reload(),
           (err) => this.error = 'Email invalid'
         );
-      }else if (this.form.controls.tipo.value == "Cidadão"){
+      }else if (this.form.controls.tipo.value == "Jornalista"){
         this.userService.registerj(
           this.form.controls.email.value,
           this.form.controls.password.value,
