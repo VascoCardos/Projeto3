@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
   selector: 'p3-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
-}) 
+})
 export class HomeComponent implements OnInit {
   show = true
 
@@ -38,13 +38,16 @@ export class HomeComponent implements OnInit {
   }
 
   perfil(): void {
-    this.authService.getId(
-    ).subscribe(
-      (success) => {
-        const temp = JSON.parse(JSON.stringify(success))
-        this.router.navigate([`/perfil/${temp._id}`])
-      } ,
-      (err) => console.log(err)
-    );
+    if(this.userService.isLoggedIn){
+      this.authService.getId(
+        ).subscribe(
+          (success) => {
+            const temp = JSON.parse(JSON.stringify(success))
+            this.router.navigate([`/perfil/${temp._id}`])
+          } ,
+          (err) => console.log(err)
+        );
+    }
+
   }
 }

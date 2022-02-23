@@ -2,7 +2,7 @@
   <p class="p">{{user.nome}} - {{user.tipo}}</p>
   <p class="p2">Bio : {{user.bio}}</p>
 </div>
-<div class="feed-cards" *ngFor="let post of posts">
+<div class="feed-cards" *ngFor="let post of posts" style="position: relative; top: 300px;">
   <mat-divider></mat-divider>
   <mat-card *ngIf="politico">
     <mat-card-title class="titulo" (click)="goToPost(post._id)">{{post.titulo}}</mat-card-title>

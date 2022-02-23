@@ -106,9 +106,12 @@ export class NewPostComponent implements OnInit {
 
   remove(politico:string): void {
     const index = this.politicosSelecionados.indexOf(politico);
-
+    const index2 = this.envolvidos.indexOf(this.getObject(politico));
     if (index >= 0) {
       this.politicosSelecionados.splice(index, 1);
+    }
+    if (index2 >= 0) {
+      this.envolvidos.splice(index, 1);
     }
   }
 

@@ -28,6 +28,7 @@ export class AuthService {
 
   getId() {
     const token= localStorage.getItem('auth_token')
+    console.log(token)
 		return this.http.post('http://localhost:3000/auth/id', {token});
 	}
 

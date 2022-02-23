@@ -55,18 +55,19 @@ export class PostComponent implements OnInit {
         (err) => console.log(err)
       );
     }
+    if(this.userService.isLoggedIn){
+      this.authService.getId()
+          .subscribe(
+            (success) => {
+              const temp = JSON.parse(JSON.stringify(success))
+              if (temp.tipo == 'admin' || temp._id == this.myId){
+                this.show=true
+              }
 
-    this.authService.getId()
-        .subscribe(
-          (success) => {
-            const temp = JSON.parse(JSON.stringify(success))
-            if (temp.tipo == 'admin' || temp._id == this.myId){
-              this.show=true
-            }
-
-          } ,
-          (err) => console.log(err)
-        );
+            } ,
+            (err) => console.log(err)
+          );
+          }
   }
 
   goToPerfil(id:string){
