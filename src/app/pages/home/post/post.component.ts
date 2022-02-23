@@ -17,6 +17,7 @@ export class PostComponent implements OnInit {
   numberOfVotes = '0'
   voted = false
   myId=''
+  show=false
 
   constructor(private router:Router, private authService: AuthService, private postService : PostService, private userService : UserService) { }
 
@@ -26,7 +27,6 @@ export class PostComponent implements OnInit {
     this.postService.getPost(this.id).subscribe(
       (success) => {
         this.post=JSON.parse(JSON.stringify(success))
-        console.log(this.post.author_nome)
       } ,
       (err) => console.log(err)
     );
@@ -44,8 +44,6 @@ export class PostComponent implements OnInit {
         (success) => {
           const temp = JSON.parse(JSON.stringify(success))
           this.myId = temp._id
-          console.log(this.id)
-          console.log(this.myId)
           this.postService.checkVoted(this.id,this.myId).subscribe(
             (success) => {
               this.voted=JSON.parse(JSON.stringify(success)).voted
@@ -57,10 +55,32 @@ export class PostComponent implements OnInit {
         (err) => console.log(err)
       );
     }
+
+    this.authService.getId()
+        .subscribe(
+          (success) => {
+            const temp = JSON.parse(JSON.stringify(success))
+            if (temp.tipo == 'admin' || temp._id == this.myId){
+              this.show=true
+            }
+
+          } ,
+          (err) => console.log(err)
+        );
   }
 
-  goToPerfil(){
-    this.router.navigate([`/perfil/${this.post.author_id}`])
+  goToPerfil(id:string){
+    this.router.navigate([`/perfil/${id}`])
+  }
+
+  apagar(){
+    this.postService.delete(this.id).subscribe(
+      (success) => {
+        console.log(success)
+        this.router.navigate([`/`])
+      } ,
+      (err) => console.log(err)
+    );
   }
 
   votar(){

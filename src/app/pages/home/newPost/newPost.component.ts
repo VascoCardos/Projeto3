@@ -26,8 +26,10 @@ export class NewPostComponent implements OnInit {
   _id=''
   nome = ''
 
+  allPoliticos:any[]
   politicosSelecionados:string[]
   politicos:string[]
+  envolvidos:any[]
 
   @ViewChild('politicoInput')
   politicoInput!: ElementRef<HTMLInputElement>;
@@ -41,6 +43,8 @@ export class NewPostComponent implements OnInit {
 		this.error = null;
     this.politicosSelecionados=[]
     this.politicos = []
+    this.allPoliticos = []
+    this.envolvidos = []
     this.filteredPoliticos = this.politicosCtrl.valueChanges.pipe(
       startWith(null),
       map((politico: any) => (politico ? this._filter(politico) : this.politicos.slice())),
@@ -59,6 +63,8 @@ export class NewPostComponent implements OnInit {
       );
       this.userService.getPoliticos().subscribe(
         (success) => {
+          this.allPoliticos = JSON.parse(JSON.stringify(success))
+          console.log(this.allPoliticos)
           for (let politico of JSON.parse(JSON.stringify(success))){
             this.politicos.push(politico.nome)
           }
@@ -69,14 +75,14 @@ export class NewPostComponent implements OnInit {
   }
 
   submit(){
-      if (this.form.valid && this.politicosCtrl.valid) {
+      if (this.form.valid) {
       this.postService.newPost(
         this._id,
         this.nome,
         this.form.controls.titulo.value,
         this.form.controls.descricao.value,
         this.form.controls.empresa.value,
-
+        this.envolvidos
       ).subscribe(
         (success) => window.location.reload(),
         (err) => console.log(err)
@@ -109,15 +115,23 @@ export class NewPostComponent implements OnInit {
   selected(event: MatAutocompleteSelectedEvent): void {
     if(this.politicosSelecionados.indexOf(event.option.viewValue)==-1)
       this.politicosSelecionados.push(event.option.viewValue);
+    this.envolvidos.push(this.getObject(event.option.viewValue))
     this.politicoInput.nativeElement.value = '';
     this.politicosCtrl.setValue(null);
-    console.log(this.politicosSelecionados)
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.politicos.filter(politico => politico.toLowerCase().includes(filterValue));
+  }
+
+  private getObject(nome: string){
+    for (let politico of this.allPoliticos){
+      if(politico.nome == nome){
+        return politico
+      }
+    }
   }
 
 }

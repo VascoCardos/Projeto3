@@ -8,8 +8,8 @@ export class PostService {
 
 constructor(private http: HttpClient) { }
 
-newPost(author_id : string, author_nome:string, titulo : string, descricao:string,empresa:string) {
-  return this.http.post('http://localhost:3000/Post/new', {author_id,author_nome,titulo,descricao,empresa});
+newPost(author_id : string, author_nome:string, titulo : string, descricao:string,empresa:string, envolvidos : any[]) {
+  return this.http.post('http://localhost:3000/Post/new', {author_id,author_nome,titulo,descricao,empresa,envolvidos});
 }
 
 search(tags : string) {
@@ -33,6 +33,10 @@ checkVoted(post_id : string, user_id:string){
 
 removerVoto(post_id : string, user_id:string){
   return this.http.delete(`http://localhost:3000/Voto/remove/${post_id}/${user_id}`);
+}
+
+delete(id : string){
+  return this.http.delete(`http://localhost:3000/Post/${id}`);
 }
 
 }
