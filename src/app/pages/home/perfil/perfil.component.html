@@ -1,3 +1,16 @@
-
-<p class="p">{{user.nome}} - {{user.tipo}}</p>
-<p class="p2">Bio : {{user.bio}}</p>
+<div>
+  <p class="p">{{user.nome}} - {{user.tipo}}</p>
+  <p class="p2">Bio : {{user.bio}}</p>
+</div>
+<div class="feed-cards" *ngFor="let post of posts">
+  <mat-divider></mat-divider>
+  <mat-card *ngIf="politico">
+    <mat-card-title class="titulo" (click)="goToPost(post._id)">{{post.titulo}}</mat-card-title>
+    <mat-card-subtitle>Autor: {{post.author_nome}}</mat-card-subtitle>
+    <mat-card-subtitle>Empresa envolvida: {{post.empresa}}</mat-card-subtitle>
+  </mat-card>
+  <mat-card *ngIf="jornalista">
+    <mat-card-title class="titulo" (click)="goToPost(post._id)">{{post.titulo}}</mat-card-title>
+    <mat-card-subtitle>Empresa envolvida: {{post.empresa}}</mat-card-subtitle>
+  </mat-card>
+</div>

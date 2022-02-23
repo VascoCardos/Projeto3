@@ -39,4 +39,12 @@ delete(id : string){
   return this.http.delete(`http://localhost:3000/Post/${id}`);
 }
 
+getEnvolvido(id:string){
+  return this.http.get(`http://localhost:3000/post/envolvido/${id}`);
+}
+
+getAutor(id:string){
+  return this.http.get(`http://localhost:3000/post//list/author_id/${id}`);
+}
+
 }
